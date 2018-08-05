@@ -5,6 +5,16 @@
 #include <array>
 #include "degree.h"
 
+struct FieldsToDisplay {
+  bool displayId;
+  bool displayFirstName;
+  bool displayLastName;
+  bool displayEmailAddress;
+  bool displayAge;
+  bool displayDaysLeftInCourses;
+  bool displayDegreePlan;
+};
+  
 class Student {
   std::string studentId;
   std::string firstName;
@@ -16,7 +26,7 @@ class Student {
   Degree degreeType;
 
 public:
-  Student(std::string newStudentId, std::string newFirstName, std::string newLastName, std::string newEmailAddress, std::string newAge, int newDaysRemainingInCourses[3], Degree newDegreeType);
+  Student(std::string newStudentId, std::string newFirstName, std::string newLastName, std::string newEmailAddress, std::string newAge, std::array<int, 3> newDaysRemainingInCourses, Degree newDegreeType);
 
   std::string getStudentId();
   std::string getFirstName();

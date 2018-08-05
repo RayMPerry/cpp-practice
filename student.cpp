@@ -1,8 +1,10 @@
+#include <iostream>
+#include <iomanip>
 #include <array>
 #include "student.h"
 
 using namespace std;
-Student::Student(string newStudentId, string newFirstName, string newLastName, string newEmailAddress, string newAge, int newDaysRemainingInCourses[3], Degree newDegreeType) {
+Student::Student(string newStudentId, string newFirstName, string newLastName, string newEmailAddress, string newAge, array<int, 3> newDaysRemainingInCourses, Degree newDegreeType) {
   studentId = newStudentId;
   firstName = newFirstName;
   lastName = newLastName;
@@ -98,21 +100,20 @@ void Student::print(array<bool, 7> fieldsToDisplay) {
    * structure: group  as much  as possible by  type and  display that
    * way.
    */
-  
+   
   struct StudentRecord {
-    string personalInfo[5];
+    array<string, 5> personalInfo;
     array<int, 3> daysRemainingInCourses;
     Degree degreeType;
   } studentRecord;
 
-  studentRecord.personalInfo[0] = studentId;
-  studentRecord.personalInfo[1] = firstName;
-  studentRecord.personalInfo[2] = lastName;
-  studentRecord.personalInfo[3] = emailAddress;
-  studentRecord.personalInfo[4] = age;
-  
+  studentRecord.personalInfo = {studentId, firstName, lastName, emailAddress, age};
   studentRecord.daysRemainingInCourses = daysRemainingInCourses;
   studentRecord.degreeType = degreeType;
+
+  int fieldWidth = 5;
+
+  cout << setw(fieldWidth) << left;
   
   for (int index = 0; index < 7; index++) {
     if (fieldsToDisplay[index] == false) continue;
@@ -128,7 +129,7 @@ void Student::print(array<bool, 7> fieldsToDisplay) {
     }
 
     // Degree Type field.
-    if (index == 6) cout << studentRecord.degreeType;
+    if (index == 6) cout << formatDegreeType(studentRecord.degreeType);
 
     if (index < 6) {
       cout << "\t";
