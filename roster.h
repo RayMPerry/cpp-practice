@@ -5,14 +5,16 @@
 #include <array>
 
 class Roster {
-  ptr* classRosterArray;
+  std::array<Student*, 5> classRosterArray;
  public:
+  std::array<Student*, 5> getRoster();
+  
   void add(std::string studentId, std::string firstName, std::string lastName, std::string emailAddress, std::string age, std::array<int, 3> daysRemainingInCourses, Degree degreeType);
-  void remove();
+  void remove(std::string studentId);
   void printAll();
-  void printDaysInCourse();
+  void printDaysInCourse(std::string studentId);
   void printInvalidEmails();
-  void printByDegreeProgram();
-}
+  void printByDegreeProgram(int degreeType);
+};
 
 #endif
