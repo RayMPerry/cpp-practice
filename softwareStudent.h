@@ -1,10 +1,10 @@
-#include <iostream>
-#include <student.h>
-#include <degree.h>
 #ifndef SOFTWARESTUDENT_H
 #define SOFTWARESTUDENT_H
 
-using namespace std;
+#include <iostream>
+#include <student.h>
+#include <degree.h>
+
 class SoftwareStudent : public Student {
   Degree degreeType;
   

@@ -29,7 +29,7 @@ int main()
 
   Student * testStudent = new Student(studentRecord.studentId, studentRecord.firstName, studentRecord.lastName, studentRecord.emailAddress, studentRecord.age, studentRecord.daysRemainingInCourses, studentRecord.degreeType);
 
-  bool fieldsToDisplay[7] = {true, true, true, true, true, true, true};
+  array<bool, 7> fieldsToDisplay = {true, true, true, true, true, true, true};
   
   testStudent->print(fieldsToDisplay);
 }

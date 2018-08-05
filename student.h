@@ -2,43 +2,43 @@
 #define STUDENT_H
 
 #include <iostream>
+#include <array>
 #include "degree.h"
 
-using namespace std;
 class Student {
-  string studentId;
-  string firstName;
-  string lastName;
-  string emailAddress;
-  string age;
+  std::string studentId;
+  std::string firstName;
+  std::string lastName;
+  std::string emailAddress;
+  std::string age;
   // Wish I could move this constant into a variable.
-  array<int, 3> daysRemainingInCourses;
+  std::array<int, 3> daysRemainingInCourses;
   Degree degreeType;
 
 public:
-  Student(string newStudentId, string newFirstName, string newLastName, string newEmailAddress, string newAge, int newDaysRemainingInCourses[3], Degree newDegreeType);
+  Student(std::string newStudentId, std::string newFirstName, std::string newLastName, std::string newEmailAddress, std::string newAge, int newDaysRemainingInCourses[3], Degree newDegreeType);
 
-  string getStudentId();
-  string getFirstName();
-  string getLastName();
-  string getEmailAddress();
-  string getAge();
+  std::string getStudentId();
+  std::string getFirstName();
+  std::string getLastName();
+  std::string getEmailAddress();
+  std::string getAge();
   int getDaysRemainingInCourse(int courseIndex);
-  int * getAllDaysRemainingInCourses();
+  std::array<int, 3> getAllDaysRemainingInCourses();
   Degree getDegreeType();
 
   // These are `void` for now. I would highly prefer to have them return the value in question.
   // But that's coming from someone who likes Lisp.
-  void setStudentId(string newStudentId);
-  void setFirstName(string newFirstName);
-  void setLastName(string newLastName);
-  void setEmailAddress(string newEmailAddress);
-  void setAge(string newAge);
+  void setStudentId(std::string newStudentId);
+  void setFirstName(std::string newFirstName);
+  void setLastName(std::string newLastName);
+  void setEmailAddress(std::string newEmailAddress);
+  void setAge(std::string newAge);
   void setDaysRemainingInCourse(int courseIndex, int daysRemaining);
-  void setAllDaysRemainingInCourses(int newDaysRemainingInCourses[3]);
+  void setAllDaysRemainingInCourses(std::array<int, 3> newDaysRemainingInCourses);
   void setDegreeType(Degree newDegreeType);
 
-  virtual void print(bool fieldsToDisplay[7]);
+  virtual void print(std::array<bool, 7> fieldsToDisplay);
   virtual void getDegreeProgram();
   
   ~Student();

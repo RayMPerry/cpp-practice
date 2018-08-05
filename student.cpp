@@ -1,3 +1,4 @@
+#include <array>
 #include "student.h"
 
 using namespace std;
@@ -38,7 +39,7 @@ int Student::getDaysRemainingInCourse(int courseIndex) {
   return daysRemainingInCourses[courseIndex];
 };
 
-int * Student::getAllDaysRemainingInCourses() {
+array<int, 3> Student::getAllDaysRemainingInCourses() {
   return daysRemainingInCourses;
 };
 
@@ -72,7 +73,7 @@ void Student::setDaysRemainingInCourse(int courseIndex, int daysRemaining) {
   daysRemainingInCourses[courseIndex] = daysRemaining;
 };
 
-void Student::setAllDaysRemainingInCourses(int * newDaysRemainingInCourses) {
+void Student::setAllDaysRemainingInCourses(array<int, 3> newDaysRemainingInCourses) {
   daysRemainingInCourses = newDaysRemainingInCourses;
 };
 
@@ -80,7 +81,7 @@ void Student::setDegreeType(Degree newDegreeType) {
   degreeType = newDegreeType;
 };
 
-void Student::print(bool fieldsToDisplay[7]) {
+void Student::print(array<bool, 7> fieldsToDisplay) {
   /* 
    * Originally, there was  an array of strings here  that allowed you
    * to change  the order  of what was  printed. However,  C++ doesn't
@@ -100,7 +101,7 @@ void Student::print(bool fieldsToDisplay[7]) {
   
   struct StudentRecord {
     string personalInfo[5];
-    int * daysRemainingInCourses;
+    array<int, 3> daysRemainingInCourses;
     Degree degreeType;
   } studentRecord;
 

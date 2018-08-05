@@ -1,3 +1,6 @@
+#ifndef DEGREE_H
+#define DEGREE_H
+
 #include <iostream>
 
 enum Degree {
@@ -5,3 +8,5 @@ enum Degree {
   NETWORKING,
   SOFTWARE
 };
+
+#endif
