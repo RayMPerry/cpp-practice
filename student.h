@@ -51,7 +51,7 @@ public:
   virtual void print(std::array<bool, 7> fieldsToDisplay);
   virtual void getDegreeProgram();
   
-  ~Student();
+  virtual ~Student();
 };
 
 #endif

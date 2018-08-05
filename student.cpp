@@ -10,11 +10,8 @@ Student::Student(string newStudentId, string newFirstName, string newLastName, s
   lastName = newLastName;
   emailAddress = newEmailAddress;
   age = newAge;
+  daysRemainingInCourses = newDaysRemainingInCourses;
   degreeType = newDegreeType;
-
-  for (int index = 0; index < 3; index++) {
-    daysRemainingInCourses[index] = newDaysRemainingInCourses[index];
-  }
 };
 
 string Student::getStudentId() {
