@@ -104,7 +104,7 @@ void Student::print(array<bool, 7> fieldsToDisplay) {
     Degree degreeType;
   } studentRecord;
 
-  studentRecord.personalInfo = {studentId, firstName, lastName, emailAddress, age};
+  studentRecord.personalInfo = (array<string, 5>){{ studentId, firstName, lastName, emailAddress, age }};
   studentRecord.daysRemainingInCourses = daysRemainingInCourses;
   studentRecord.degreeType = degreeType;
 

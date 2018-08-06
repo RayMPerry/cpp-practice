@@ -3,12 +3,14 @@
 
 #include <iostream>
 #include <array>
+#include <vector>
 
 class Roster {
-  std::array<Student*, 5> classRosterArray;
+  std::vector<Student*> classRosterArray;
  public:
-  std::array<Student*, 5> getRoster();
-  
+  std::vector<Student*> getRoster();
+
+  void importRecords(std::vector<std::string> studentRecords);
   void add(std::string studentId, std::string firstName, std::string lastName, std::string emailAddress, std::string age, std::array<int, 3> daysRemainingInCourses, Degree degreeType);
   void remove(std::string studentId);
   void printAll();
