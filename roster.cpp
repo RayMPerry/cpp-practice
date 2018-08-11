@@ -8,8 +8,8 @@
 
 using namespace std;
 void Roster::add(string studentId, string firstName, string lastName, string emailAddress, string age, array<int, 3> daysRemainingInCourses, Degree degreeProgram) {
-  Student * newStudent = new Student(studentId, firstName, lastName, emailAddress, age, daysRemainingInCourses);
-  classRosterArray.push_back(newStudent);
+  // Commenting out because this throws an error.
+  // classRosterArray.emplace_back(studentId, firstName, lastName, emailAddress, age, daysRemainingInCourses);
 }
 
 vector<Student*> Roster::getRoster() {
@@ -63,7 +63,7 @@ int main()
   
   cout << "Test";
 
-  for (const auto& student : allStudents) {
+  for (auto& student : allStudents) {
     student->print(fieldsToDisplay);
   }
 

@@ -3,9 +3,7 @@
 #include <array>
 #include "student.h"
 
-using namespace std;
-
-Student::Student(string newStudentId, string newFirstName, string newLastName, string newEmailAddress, string newAge, array<int, 3> newDaysRemainingInCourses) {
+Student::Student(std::string newStudentId, std::string newFirstName, std::string newLastName, std::string newEmailAddress, std::string newAge, std::array<int, 3> newDaysRemainingInCourses) {
   studentId = newStudentId;
   firstName = newFirstName;
   lastName = newLastName;
@@ -14,23 +12,23 @@ Student::Student(string newStudentId, string newFirstName, string newLastName, s
   daysRemainingInCourses = newDaysRemainingInCourses;
 };
 
-string Student::getStudentId() {
+std::string Student::getStudentId() {
   return studentId;
 };
 
-string Student::getFirstName() {
+std::string Student::getFirstName() {
   return firstName;
 };
 
-string Student::getLastName() {
+std::string Student::getLastName() {
   return lastName;
 };
 
-string Student::getEmailAddress() {
+std::string Student::getEmailAddress() {
   return emailAddress;
 };
 
-string Student::getAge() {
+std::string Student::getAge() {
   return age;
 };
 
@@ -38,29 +36,29 @@ int Student::getDaysRemainingInCourse(int courseIndex) {
   return daysRemainingInCourses[courseIndex];
 };
 
-array<int, 3> Student::getAllDaysRemainingInCourses() {
+std::array<int, 3> Student::getAllDaysRemainingInCourses() {
   return daysRemainingInCourses;
 };
 
 // These are `void` for now. I would highly prefer to have them return the value in question.
 // But that's coming from someone who likes Lisp.
-void Student::setStudentId(string newStudentId) {
+void Student::setStudentId(std::string newStudentId) {
   studentId = newStudentId;
 };
 
-void Student::setFirstName(string newFirstName) {
+void Student::setFirstName(std::string newFirstName) {
   firstName = newFirstName;
 };
 
-void Student::setLastName(string newLastName) {
+void Student::setLastName(std::string newLastName) {
   lastName = newLastName;
 };
 
-void Student::setEmailAddress(string newEmailAddress) {
+void Student::setEmailAddress(std::string newEmailAddress) {
   emailAddress = newEmailAddress;
 };
 
-void Student::setAge(string newAge) {
+void Student::setAge(std::string newAge) {
   age = newAge;
 };
 
@@ -68,13 +66,13 @@ void Student::setDaysRemainingInCourse(int courseIndex, int daysRemaining) {
   daysRemainingInCourses[courseIndex] = daysRemaining;
 };
 
-void Student::setAllDaysRemainingInCourses(array<int, 3> newDaysRemainingInCourses) {
+void Student::setAllDaysRemainingInCourses(std::array<int, 3> newDaysRemainingInCourses) {
   daysRemainingInCourses = newDaysRemainingInCourses;
 };
 
-void Student::print(array<bool, 7> fieldsToDisplay) {
+void Student::print(std::array<bool, 7> fieldsToDisplay) {
   /* 
-   * Originally, there was  an array of strings here  that allowed you
+   * Originally, there was  an std::array of strings here  that allowed you
    * to change  the order  of what was  printed. However,  C++ doesn't
    * have reflection built in. An interesting gotcha for people coming
    * from JavaScript. 
@@ -91,43 +89,43 @@ void Student::print(array<bool, 7> fieldsToDisplay) {
    */
    
   struct StudentRecord {
-    array<string, 5> personalInfo;
-    array<int, 3> daysRemainingInCourses;
+    std::array<std::string, 5> personalInfo;
+    std::array<int, 3> daysRemainingInCourses;
     Degree degreeType;
   } studentRecord;
 
-  studentRecord.personalInfo = (array<string, 5>){{ studentId, firstName, lastName, emailAddress, age }};
+  studentRecord.personalInfo = (std::array<std::string, 5>){{ studentId, firstName, lastName, emailAddress, age }};
   studentRecord.daysRemainingInCourses = daysRemainingInCourses;
 
   int fieldWidth = 5;
 
-  cout << setw(fieldWidth) << left;
+  std::cout << std::setw(fieldWidth) << std::left;
   
   for (int index = 0; index < 7; index++) {
-    cout << fieldsToDisplay[index];
+    std::cout << fieldsToDisplay[index];
     if (fieldsToDisplay[index] == false) continue;
     // Personal Info fields.
-    if (index < 5) cout << studentRecord.personalInfo[index];
+    if (index < 5) std::cout << studentRecord.personalInfo[index];
 
     // Days remaining fields.
     if (index == 5) {
       for (int innerIndex = 0; innerIndex < 3; innerIndex++) {
-        cout << studentRecord.daysRemainingInCourses[innerIndex] << "\t";
+          std::cout << studentRecord.daysRemainingInCourses[innerIndex] << "\t";
       };
       continue;
     }
 
     // Degree Type field.
-    // if (index == 6) cout << formatDegreeType(studentRecord.degreeType);
+    // if (index == 6)   std::cout << formatDegreeType(studentRecord.degreeType);
 
     if (index < 6) {
-      cout << "\t";
+        std::cout << "\t";
     } else {
-      cout << endl;
+      std::cout << std::endl;
     }
   };
 
-  cout.flush(); 
+    std::cout.flush(); 
 };
 
 void Student::getDegreeProgram() {};
