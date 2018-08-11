@@ -4,14 +4,14 @@
 #include "student.h"
 
 using namespace std;
-Student::Student(string newStudentId, string newFirstName, string newLastName, string newEmailAddress, string newAge, array<int, 3> newDaysRemainingInCourses, Degree newDegreeType) {
+
+Student::Student(string newStudentId, string newFirstName, string newLastName, string newEmailAddress, string newAge, array<int, 3> newDaysRemainingInCourses) {
   studentId = newStudentId;
   firstName = newFirstName;
   lastName = newLastName;
   emailAddress = newEmailAddress;
   age = newAge;
   daysRemainingInCourses = newDaysRemainingInCourses;
-  degreeType = newDegreeType;
 };
 
 string Student::getStudentId() {
@@ -40,10 +40,6 @@ int Student::getDaysRemainingInCourse(int courseIndex) {
 
 array<int, 3> Student::getAllDaysRemainingInCourses() {
   return daysRemainingInCourses;
-};
-
-Degree Student::getDegreeType() {
-  return degreeType;
 };
 
 // These are `void` for now. I would highly prefer to have them return the value in question.
@@ -76,10 +72,6 @@ void Student::setAllDaysRemainingInCourses(array<int, 3> newDaysRemainingInCours
   daysRemainingInCourses = newDaysRemainingInCourses;
 };
 
-void Student::setDegreeType(Degree newDegreeType) {
-  degreeType = newDegreeType;
-};
-
 void Student::print(array<bool, 7> fieldsToDisplay) {
   /* 
    * Originally, there was  an array of strings here  that allowed you
@@ -106,13 +98,13 @@ void Student::print(array<bool, 7> fieldsToDisplay) {
 
   studentRecord.personalInfo = (array<string, 5>){{ studentId, firstName, lastName, emailAddress, age }};
   studentRecord.daysRemainingInCourses = daysRemainingInCourses;
-  studentRecord.degreeType = degreeType;
 
   int fieldWidth = 5;
 
   cout << setw(fieldWidth) << left;
   
   for (int index = 0; index < 7; index++) {
+    cout << fieldsToDisplay[index];
     if (fieldsToDisplay[index] == false) continue;
     // Personal Info fields.
     if (index < 5) cout << studentRecord.personalInfo[index];
@@ -126,15 +118,16 @@ void Student::print(array<bool, 7> fieldsToDisplay) {
     }
 
     // Degree Type field.
-    if (index == 6) cout << formatDegreeType(studentRecord.degreeType);
+    // if (index == 6) cout << formatDegreeType(studentRecord.degreeType);
 
     if (index < 6) {
       cout << "\t";
     } else {
-      cout << "\n";
+      cout << endl;
     }
-  }; 
+  };
 
+  cout.flush(); 
 };
 
 void Student::getDegreeProgram() {};

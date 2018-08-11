@@ -9,8 +9,12 @@ class SoftwareStudent : public Student {
   Degree degreeType;
   
  public:
+  SoftwareStudent(Degree degreeType);
+  
   void getDegreeProgram() override;
   void print() override;
+
+  virtual ~SoftwareStudent();
 }
 
 #endif

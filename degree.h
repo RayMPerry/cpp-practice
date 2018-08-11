@@ -6,12 +6,12 @@
 
 enum Degree {
   SECURITY,
-  NETWORKING,
+  NETWORK,
   SOFTWARE
 };
 
 std::string formatDegreeType(Degree degreeType) {
-  std::array<std::string, 3> degreeMapping = { { "SECURITY", "NETWORKING", "SOFTWARE" } };
+  std::array<std::string, 3> degreeMapping = { { "SECURITY", "NETWORK", "SOFTWARE" } };
 
   return degreeMapping.at(degreeType);
 }

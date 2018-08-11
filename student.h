@@ -23,10 +23,9 @@ class Student {
   std::string age;
   // Wish I could move this constant into a variable.
   std::array<int, 3> daysRemainingInCourses;
-  Degree degreeType;
 
 public:
-  Student(std::string newStudentId, std::string newFirstName, std::string newLastName, std::string newEmailAddress, std::string newAge, std::array<int, 3> newDaysRemainingInCourses, Degree newDegreeType);
+  Student(std::string newStudentId, std::string newFirstName, std::string newLastName, std::string newEmailAddress, std::string newAge, std::array<int, 3> newDaysRemainingInCourses);
 
   std::string getStudentId();
   std::string getFirstName();
@@ -35,7 +34,6 @@ public:
   std::string getAge();
   int getDaysRemainingInCourse(int courseIndex);
   std::array<int, 3> getAllDaysRemainingInCourses();
-  Degree getDegreeType();
 
   // These are `void` for now. I would highly prefer to have them return the value in question.
   // But that's coming from someone who likes Lisp.
@@ -46,11 +44,10 @@ public:
   void setAge(std::string newAge);
   void setDaysRemainingInCourse(int courseIndex, int daysRemaining);
   void setAllDaysRemainingInCourses(std::array<int, 3> newDaysRemainingInCourses);
-  void setDegreeType(Degree newDegreeType);
 
   virtual void print(std::array<bool, 7> fieldsToDisplay);
   virtual void getDegreeProgram();
-  
+ 
   virtual ~Student();
 };
 
