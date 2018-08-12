@@ -1,3 +1,3 @@
 all:
-	clang++ -fsanitize=address -std=c++11 -Wall roster.cpp -o roster.out
+	clang++ -std=c++11 -Wall roster.cpp -o roster.out
 	./roster.out

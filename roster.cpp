@@ -127,7 +127,7 @@ void Roster::importRecords(std::vector<std::string> studentRecords) {
 }
 
 void Roster::printPreamble() {
-  std::cout << std::left
+  std::cout << std::endl << std::left
             << std::setw(15) << "Student ID"
             << std::setw(15) << "First Name"
             << std::setw(15) << "Last Name"
@@ -203,7 +203,7 @@ int main()
             << "Course Title: Scripting and Programming - Applications – C867" << std::endl
             << "Programming Language: C++" << std::endl
             << "Student ID: 000981059" << std::endl
-            << "Student Name: Ray Perry" << std::endl << std::endl;
+            << "Student Name: Ray Perry" << std::endl;
   
   std::vector<std::string> mockStudentData = {
     "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -227,6 +227,7 @@ int main()
   roster->printByDegreeProgram(SOFTWARE);
   
   roster->remove("A3");
+  roster->printByDegreeProgram(SOFTWARE);
   roster->remove("A3");
   roster->removeAllStudents();
   
