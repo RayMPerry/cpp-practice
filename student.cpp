@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <array>
+#include <map>
 #include "student.h"
 
 Student::Student(std::string newStudentId, std::string newFirstName, std::string newLastName, std::string newEmailAddress, std::string newAge, std::array<int, 3> newDaysRemainingInCourses) {
@@ -70,7 +71,7 @@ void Student::setAllDaysRemainingInCourses(std::array<int, 3> newDaysRemainingIn
   daysRemainingInCourses = newDaysRemainingInCourses;
 };
 
-void Student::print() {
+void Student::print(std::string degreeProgram = "NONE") {
   /* 
    * Originally, there was  an std::array of strings here  that allowed you
    * to change  the order  of what was  printed. However,  C++ doesn't
@@ -111,13 +112,13 @@ void Student::print() {
 
   // Where can I print Degree?
   
-  // if (degreeProgram) {
-  //   std::cout << std::setw(15) << degreeProgram;
-  // }
+  if (degreeProgram != "NONE") {
+    std::cout << std::setw(15) << degreeProgram;
+  }
 
   std::cout << std::endl;
 };
 
-void Student::getDegreeProgram() {};
-  
+Degree Student::getDegreeProgram() { return SOFTWARE; }
+
 Student::~Student() {};

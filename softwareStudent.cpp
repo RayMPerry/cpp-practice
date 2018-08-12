@@ -1,12 +1,13 @@
 #include <iostream>
+#include "degree.h"
 #include "softwareStudent.h"
 
-void SoftwareStudent::getDegreeProgram() {
-  
+Degree SoftwareStudent::getDegreeProgram() {
+  return SOFTWARE;
 }
 
-void SoftwareStudent::print() {
-  
+void SoftwareStudent::print(std::string degreeProgram) {
+  this->Student::print("SOFTWARE");
 }
 
 SoftwareStudent::~SoftwareStudent() {}

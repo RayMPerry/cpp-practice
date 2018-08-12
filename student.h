@@ -45,8 +45,8 @@ public:
   void setDaysRemainingInCourse(int courseIndex, int daysRemaining);
   void setAllDaysRemainingInCourses(std::array<int, 3> newDaysRemainingInCourses);
 
-  virtual void print();
-  virtual void getDegreeProgram();
+  virtual void print(std::string degreeProgram);
+  virtual Degree getDegreeProgram();
  
   virtual ~Student();
 };

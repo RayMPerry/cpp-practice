@@ -12,8 +12,9 @@ class SoftwareStudent : public Student {
   SoftwareStudent(std::string newStudentId, std::string newFirstName, std::string newLastName, std::string newEmailAddress, std::string newAge, std::array<int, 3> newDaysRemainingInCourses) : Student(newStudentId, newFirstName, newLastName, newEmailAddress, newAge, newDaysRemainingInCourses) {
     degreeType = SOFTWARE;
   }
-  void getDegreeProgram() override;
-  void print() override;
+  
+  virtual Degree getDegreeProgram() override;
+  virtual void print(std::string degreeProgram) override;
 
   virtual ~SoftwareStudent();
 };
