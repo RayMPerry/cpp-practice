@@ -70,7 +70,7 @@ void Student::setAllDaysRemainingInCourses(std::array<int, 3> newDaysRemainingIn
   daysRemainingInCourses = newDaysRemainingInCourses;
 };
 
-void Student::print(std::array<bool, 7> fieldsToDisplay) {
+void Student::print() {
   /* 
    * Originally, there was  an std::array of strings here  that allowed you
    * to change  the order  of what was  printed. However,  C++ doesn't
@@ -87,45 +87,35 @@ void Student::print(std::array<bool, 7> fieldsToDisplay) {
    * structure: group  as much  as possible by  type and  display that
    * way.
    */
-   
-  struct StudentRecord {
-    std::array<std::string, 5> personalInfo;
-    std::array<int, 3> daysRemainingInCourses;
-    Degree degreeType;
-  } studentRecord;
-
-  studentRecord.personalInfo = (std::array<std::string, 5>){{ studentId, firstName, lastName, emailAddress, age }};
-  studentRecord.daysRemainingInCourses = daysRemainingInCourses;
-
-  int fieldWidth = 5;
-
-  std::cout << std::setw(fieldWidth) << std::left;
   
-  for (int index = 0; index < 7; index++) {
-    std::cout << fieldsToDisplay[index];
-    if (fieldsToDisplay[index] == false) continue;
-    // Personal Info fields.
-    if (index < 5) std::cout << studentRecord.personalInfo[index];
+  std::string daysLeftInCourses;
+  std::map<std::string, Degree> degreeMapping;
 
-    // Days remaining fields.
-    if (index == 5) {
-      for (int innerIndex = 0; innerIndex < 3; innerIndex++) {
-          std::cout << studentRecord.daysRemainingInCourses[innerIndex] << "\t";
-      };
-      continue;
-    }
+  degreeMapping.emplace("SECURITY", SECURITY);
+  degreeMapping.emplace("NETWORK", NETWORK);
+  degreeMapping.emplace("SOFTWARE", SOFTWARE);
 
-    // Degree Type field.
-    // if (index == 6)   std::cout << formatDegreeType(studentRecord.degreeType);
+  std::cout << std::left
+            << std::setw(15) << studentId
+            << std::setw(15) << firstName
+            << std::setw(15) << lastName
+            << std::setw(25) << emailAddress
+            << std::setw(15) << age;
 
-    if (index < 6) {
-        std::cout << "\t";
-    } else {
-      std::cout << std::endl;
-    }
-  };
+  for (int i = 0; i < 3; i++) {
+    daysLeftInCourses = daysLeftInCourses + std::to_string(daysRemainingInCourses[i]);
+    if (i != 2) daysLeftInCourses = daysLeftInCourses + ", "; 
+  }
 
-    std::cout.flush(); 
+  std::cout << std::setw(25) << daysLeftInCourses;
+
+  // Where can I print Degree?
+  
+  // if (degreeProgram) {
+  //   std::cout << std::setw(15) << degreeProgram;
+  // }
+
+  std::cout << std::endl;
 };
 
 void Student::getDegreeProgram() {};

@@ -1,13 +1,5 @@
 #include <iostream>
-#include <degree.h>
-#include <softwareStudent.h>
-
-using namespace std;
-SoftwareStudent::SoftwareStudent() {
-  super();
-
-  degreeType = SOFTWARE;
-}
+#include "softwareStudent.h"
 
 void SoftwareStudent::getDegreeProgram() {
   
@@ -16,3 +8,5 @@ void SoftwareStudent::getDegreeProgram() {
 void SoftwareStudent::print() {
   
 }
+
+SoftwareStudent::~SoftwareStudent() {}
